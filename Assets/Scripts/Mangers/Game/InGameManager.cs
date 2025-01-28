@@ -39,15 +39,21 @@ namespace Game {
             set
             {
                 score += value;
-                if (score / 10 > PlayerPrefs.GetInt("Score", 0) / 10)
+                int savedScore = PlayerPrefs.GetInt("Score", 0);
+                if (score > savedScore)
                 {
                     PlayerPrefs.SetInt("Score", score);
-                    PlayerPrefs.Save();
+                    if (score >= savedScore + 10)
+                    {
+                        PlayerPrefs.Save();
+                    }
                 }
+
                 inGameUIManager.inGameUi.SetScore(score, GetScore());
             }
             get { return score; }
         }
+
         private int score = 0;
 
 
