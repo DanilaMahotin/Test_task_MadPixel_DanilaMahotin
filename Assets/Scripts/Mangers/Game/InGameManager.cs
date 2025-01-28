@@ -109,7 +109,7 @@ namespace Game {
 
                 int i = 1;
                 do {
-                    collisionCube[i].gameObject.SetActive(false);
+                    Destroy(collisionCube[i]);
                     i++;
                 }
                 while (i < collisionCube.Count);

@@ -4,10 +4,12 @@
     "floatKeys": [],
     "floatValues": [],
     "intKeys": [
-        "isMusicPlay"
+        "isMusicPlay",
+        "Score"
     ],
     "intValues": [
-        1
+        1,
+        28
     ],
     "intExample": 5,
     "strExample": "Hello!",
@@ -17,5 +19,5 @@
         false,
         false
     ],
-    "idSave": 19
+    "idSave": 21
 }
