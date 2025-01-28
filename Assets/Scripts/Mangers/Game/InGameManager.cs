@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.CubeNS;
 using Game.Audio;
+using YG;
 namespace Game {
     public class InGameManager :MonoBehaviour {
 
@@ -45,7 +46,7 @@ namespace Game {
         private int score = 0;
 
 
-        private int GetScore() { return PlayerPrefs.GetInt("cubeScore", 0); }
+        private int GetScore() { return PlayerPrefs.GetInt("Score", 0); }
         public Vector3 Boards {
             get { return boards; }
         }
@@ -125,8 +126,22 @@ namespace Game {
             get { return isGameOver; }
         }
         private bool isGameOver = false;
-        public void RestartGame() => ChangeScene(1);
-        public void BackToMenu() => ChangeScene(0);
+        public void RestartGame() 
+        {
+            YG2.RewardedAdvShow("rewarded", () =>
+            {
+                ChangeScene(1);
+            });
+            
+        } 
+        
+        public void BackToMenu() 
+        {
+            if (YG2.isTimerAdvCompleted)
+                YG2.InterstitialAdvShow();
+            else
+                ChangeScene(0);
+        }
         private void ChangeScene(int i) => SceneManager.LoadScene(i);
     }
 }

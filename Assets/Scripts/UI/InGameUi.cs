@@ -20,7 +20,7 @@ namespace Game.UI {
 
         public void SetScore(int score, int hightScore) {
             currScoreText.text = score.ToString();
-            recordScoreText.text = "Hight score: feoiiofdk" + hightScore.ToString();
+            recordScoreText.text = "Hight score: " + hightScore.ToString();
         }
     }
 }
