@@ -19,6 +19,8 @@ namespace Game.UI {
         [SerializeField] Button musicButton;
         [SerializeField] Image musicOff;
         [SerializeField] Image musicOn;
+        AudioSwitcher _audioManager;
+
         public override void Init(bool isOpen = false) {
             base.Init(isOpen);
             okButton.onClick.AddListener(CloseSettingMenu);
@@ -28,9 +30,9 @@ namespace Game.UI {
             backToMenuButton.onClick.AddListener(BackToMenu);
             musicButton.onClick.AddListener(ChangeMusic);
 
-            //TODO SAVE Music Value
-            musicOff.gameObject.SetActive(true);
-            musicOn.gameObject.SetActive(false);
+            _audioManager = GameObject.Find("AudioManager").GetComponent<AudioSwitcher>();
+            musicOff.gameObject.SetActive(_audioManager.isMusicPlay);
+            musicOn.gameObject.SetActive(!_audioManager.isMusicPlay);
         }
 
         private void CloseSettingMenu() => inGameUIManager.CloseSetting();
@@ -44,8 +46,8 @@ namespace Game.UI {
         private void MusicSwitcher(bool value) {
             musicOff.gameObject.SetActive(value);
             musicOn.gameObject.SetActive(!value);
-
-            GameObject.Find("MusicManager").GetComponent<AudioSwitcher>().SwitchVolume(value);
+            
+            _audioManager.SwitchVolume(value);
         }
 
     }
