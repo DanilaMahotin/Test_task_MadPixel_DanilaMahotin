@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 namespace Menu {
     public class MenuUIManager :MonoBehaviour {
 
@@ -32,12 +33,14 @@ namespace Menu {
             {
                 language = 1;
                 PlayerPrefs.SetInt("language", language);
+                PlayerPrefs.Save();
                 localiz.UpdateText();
             }
             else 
             {
                 language = 0;
                 PlayerPrefs.SetInt("language", language);
+                PlayerPrefs.Save();
                 localiz.UpdateText();
             }
         }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Game.CubeNS;
 using Game.Audio;
 using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 namespace Game {
     public class InGameManager :MonoBehaviour {
 

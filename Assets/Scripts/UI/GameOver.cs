@@ -7,7 +7,6 @@ namespace Game.UI {
     public class GameOver :MenuWindow {
         [SerializeField] InGameUIManager inGameUIManager;
 
-
         [SerializeField] Button restartButton;
         [SerializeField] Button backToMenuButton;
 

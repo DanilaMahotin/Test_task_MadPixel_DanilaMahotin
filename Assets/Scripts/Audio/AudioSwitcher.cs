@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 namespace Game.Audio {
     public class AudioSwitcher :MonoBehaviour {
 
@@ -30,11 +31,16 @@ namespace Game.Audio {
 
         private void LoadVolumeSetting() 
         {
-            if (PlayerPrefs.HasKey("isMusicPlay")) 
-            {
+            
                 isMusicPlay = PlayerPrefs.GetInt("isMusicPlay") == 1;
                 AudioListener.volume = isMusicPlay ? 1 : 0;
-            }
+            
+        }
+
+        private void OnApplicationFocus(bool focus)
+        {
+            AudioListener.volume = focus ? 1 : 0;
+            Time.timeScale = focus ? 1 : 0;
         }
     }
 }
