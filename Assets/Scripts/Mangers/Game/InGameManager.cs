@@ -34,11 +34,15 @@ namespace Game {
 
         [HideInInspector] public List<GameObject> collisionCube;
 
-        public int Score {
-            set { 
-                score += value; 
-                if(score > GetScore()) {
+        public int Score
+        {
+            set
+            {
+                score += value;
+                if (score / 10 > PlayerPrefs.GetInt("Score", 0) / 10)
+                {
                     PlayerPrefs.SetInt("Score", score);
+                    PlayerPrefs.Save();
                 }
                 inGameUIManager.inGameUi.SetScore(score, GetScore());
             }
