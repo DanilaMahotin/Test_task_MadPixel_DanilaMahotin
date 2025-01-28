@@ -1,3 +1,4 @@
+using Game.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +45,7 @@ namespace Game.UI {
             musicOff.gameObject.SetActive(value);
             musicOn.gameObject.SetActive(!value);
 
-            inGameUIManager.inGameManager.audioSwitcher.SwitchVolume(value);
+            GameObject.Find("MusicManager").GetComponent<AudioSwitcher>().SwitchVolume(value);
         }
 
     }
