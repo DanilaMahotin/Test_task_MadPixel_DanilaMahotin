@@ -21,8 +21,10 @@ namespace Menu {
         {
             if (YG2.isTimerAdvCompleted)
                 YG2.InterstitialAdvShow();
-            else
+            else 
                 menuManager.PlayGame();
+                
+                
         }
         private void Changelanguage() 
         {

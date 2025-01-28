@@ -139,8 +139,10 @@ namespace Game {
         {
             if (YG2.isTimerAdvCompleted)
                 YG2.InterstitialAdvShow();
-            else
+            else 
                 ChangeScene(0);
+                
+                
         }
         private void ChangeScene(int i) => SceneManager.LoadScene(i);
     }
